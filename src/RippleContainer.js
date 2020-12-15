@@ -7,6 +7,7 @@ const RippleContainer = styled.div`
     bottom: 0;
     left: 0;
     overflow: hidden;
+    border-radius: ${(props) => props.radius};
 
     span {
         transform: scale(0);

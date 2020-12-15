@@ -1,6 +1,6 @@
 {
     "name": "reactjs-ripple",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Component for react that creates a ripple effect similar to Material-ui.",
     "main": "index.js",
     "keywords": [
