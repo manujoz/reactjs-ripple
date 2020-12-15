@@ -1,0 +1,27 @@
+{
+    "name": "reactjs-ripple",
+    "version": "1.0.3",
+    "description": "Component for react that creates a ripple effect similar to Material-ui.",
+    "main": "index.js",
+    "keywords": [
+        "react",
+        "reactjs",
+        "components",
+        "ripple"
+    ],
+    "author": "Manu Overa",
+    "license": "MIT",
+    "dependencies": {
+        "styled-components": "^5.2.1"
+    },
+    "peerDependencies": {
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-scripts": "4.0.1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/manujoz/reactjs-ripple.git"
+    },
+    "types": "./index.d.ts"
+}
