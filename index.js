@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect, useEffect, useRef } from "react";
 import RippleContainer from "./src/RippleContainer";
 
 const useDebouncedRippleCleanUp = (rippleCount, duration, cleanUpFunction) => {
@@ -19,9 +19,17 @@ const useDebouncedRippleCleanUp = (rippleCount, duration, cleanUpFunction) => {
 
 const Ripple = ({ duration = 850, color }) => {
     const [rippleArray, setRippleArray] = useState([]);
+    const [radius, setRadius] = useState("none");
+    const containerRef = useRef(null);
 
     useDebouncedRippleCleanUp(rippleArray.length, duration, () => {
         setRippleArray([]);
+    });
+
+    useEffect(() => {
+        const container = containerRef.current.parentElement;
+        const computed = document.defaultView.getComputedStyle(container, "");
+        setRadius(computed.borderRadius);
     });
 
     const addRipple = (event) => {
@@ -39,7 +47,7 @@ const Ripple = ({ duration = 850, color }) => {
     };
 
     return (
-        <RippleContainer duration={duration} color={color} onMouseDown={addRipple}>
+        <RippleContainer ref={containerRef} duration={duration} color={color} radius={radius} onMouseDown={addRipple}>
             {rippleArray.length > 0 &&
                 rippleArray.map((ripple, index) => {
                     return (
